@@ -6,6 +6,21 @@
 #include <cassert>
 #include <string>
 
+bool Date::is_leap_year(const unsigned& year) const{
+	if (year % 400 == 0) {
+      return true;
+   }
+   else if (year % 100 == 0) {
+      return false;
+   }
+   else if (year % 4 == 0) {
+      return true;
+   }
+   else {
+      return false;
+   }
+}
+
 Date::Date(){
 	this->year = 1900;
 	this->month = 1;
@@ -20,12 +35,21 @@ Date::Date(const unsigned& _year, const unsigned& _month, const unsigned& _day){
 }
 
 Date::Date(const Date& _other){
-	set_year(_other.year);
-	set_month(_other.month);
-	set_day(_other.day);
+	this->set_year(_other.year);
+	this->set_month(_other.month);
+	this->set_day(_other.day);
 }
 
 Date::~Date(){}
+
+Date& Date::operator=(const Date& _other){
+	if(this != &_other){
+		this->set_year(_other.year);
+		this->set_month(_other.month);
+		this->set_day(_other.day);
+	}
+	return *this;
+}
 
 void Date::set_year(const unsigned& _year){
 	this->year = _year;
@@ -52,7 +76,7 @@ void Date::is_valid_input(const unsigned& _year, const unsigned& _month, const u
 			max_days += 3;
 			break;
 		case 2:
-			if(_year % 4 == 0 && _year % 100 == 0 && _year % 400 == 0){
+			if(this->is_leap_year(_year)){
 				max_days += 1;
 			}
 			break;
@@ -66,12 +90,7 @@ void Date::is_valid_input(const unsigned& _year, const unsigned& _month, const u
 	assert(_year >= 1900);
 }
 
-std::fstream& operator>>(std::fstream& in, const Date& d){
-
-	return in;
-}
-
-std::fstream& operator<<(std::fstream& out, const Date& d){
+std::ostream& operator<<(std::ostream& out, const Date& d){
 	out << d.year << "-" << d.month << "-" << d.day ;
 	return out;
 }

@@ -2,7 +2,7 @@
 
 #define DATE_H
 
-#include <fstream>
+#include <iostream>
 
 class Date
 {
@@ -10,11 +10,15 @@ private:
 	unsigned year;
 	unsigned month;
 	unsigned day;
+
+	bool is_leap_year(const unsigned&) const;
 public:
 	Date();
 	Date(const unsigned&, const unsigned&, const unsigned&);
 	Date(const Date&);
 	~Date();
+
+	Date& operator=(const Date&);
 	
 	void set_year(const unsigned&);
 	void set_month(const unsigned&);
@@ -22,8 +26,8 @@ public:
 
 	void is_valid_input(const unsigned&, const unsigned&, const unsigned&) const;
 	
-	friend std::fstream& operator>>(std::fstream&, const Date&);
-	friend std::fstream& operator<<(std::fstream&, const Date&);
+	friend std::ostream& operator<<(std::ostream&, const Date&);
+
 	bool operator>(const Date&) const;
 	bool operator<(const Date&) const;
 	bool operator==(const Date&) const;
