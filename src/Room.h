@@ -8,7 +8,7 @@ class Room
 {
 private:
 	unsigned number_of_beds;
-
+sss
 public:
 	Room();
 	~Room();
