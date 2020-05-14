@@ -19,13 +19,17 @@ public:
 	~Date();
 
 	Date& operator=(const Date&);
-	
+
 	void set_year(const unsigned&);
 	void set_month(const unsigned&);
 	void set_day(const unsigned&);
 
+	unsigned get_day() const;
+	unsigned get_month() const;
+	unsigned get_year() const;
+
 	void is_valid_input(const unsigned&, const unsigned&, const unsigned&) const;
-	
+
 	friend std::ostream& operator<<(std::ostream&, const Date&);
 
 	bool operator>(const Date&) const;

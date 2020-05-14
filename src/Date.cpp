@@ -63,6 +63,16 @@ void Date::set_day(const unsigned& _day){
 	this->day = _day;
 }
 
+unsigned Date::get_day() const{
+	return this->day;
+}
+unsigned Date::get_month() const{
+	return this->month;
+}
+unsigned Date::get_year() const{
+	return this->year;
+}
+
 void Date::is_valid_input(const unsigned& _year, const unsigned& _month, const unsigned& _day) const{
 	int max_days = 28;
 	switch(_month){
@@ -116,11 +126,11 @@ bool Date::operator<(const Date& _other) const{
 }
 
 bool Date::operator==(const Date& _other) const{
-	return this->year == _other.year && this->month == _other.month && this->day == _other.day; 
+	return this->year == _other.year && this->month == _other.month && this->day == _other.day;
 }
 
 bool Date::operator>=(const Date& _other) const{
-	return ((*this) > _other) || ((*this) == _other); 
+	return ((*this) > _other) || ((*this) == _other);
 }
 
 bool Date::operator<=(const Date& _other) const{
