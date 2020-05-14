@@ -19,7 +19,7 @@ Room::Room(){
 Room::Room(const unsigned& _guests, const unsigned& _beds, const unsigned& _room_id){
 
 }
-Room::Room(const unsigned& _guests, const unsigned& _beds, const unsigned& _room_id, 
+Room::Room(const unsigned& _guests, const unsigned& _beds, const unsigned& _room_id,
 			const Date& _from, const Date& _to, const std::string& _note): from(_from), to(_to){
 	this->set_number_of_guests(_guests);
 	this->set_number_of_beds(_beds);
@@ -67,6 +67,14 @@ void Room::book_room(const Date& _from, const Date& _to){
 	assert(_from <= _to);
 	this->set_from_date(_from);
 	this->set_to_date(_to);
+}
+
+std::ostream& operator<<(std::ostream& out, const Room& r){
+	return out;
+}
+
+std::istream& operator>>(std::istream& out, const Room& r){
+	return out;
 }
 
 #endif /* end of include guard: ROOM_CPP */

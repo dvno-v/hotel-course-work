@@ -3,6 +3,7 @@
 #define ROOM_H
 
 #include <string>
+#include <iostream>
 #include "Date.h"
 
 class Room
@@ -34,7 +35,10 @@ public:
 	void set_note(const std::string&);
 
 	void book_room(const Date&, const Date&);
-	
+
+	friend std::ostream& operator<<(std::ostream&, const Room&);
+	friend std::istream& operator>>(std::istream&, const Room&);
+
 };
 
 #endif
