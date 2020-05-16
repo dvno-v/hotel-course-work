@@ -1,5 +1,6 @@
 # hotel-course-work
 This is a course work from my university. We are required to upload our code to github, so the professors can look at our progress.
+
 Да се напише програма, реализираща информационна система, обслужваща хотел. Програмата съхранява и обработва данните за стаите в хотела във файл.
 
 След като приложението отвори даден файл, то трябва да може да извършва посочените по-долу операции, в допълнение на общите операции (open, close, save, save as, help и exit):
