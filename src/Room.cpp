@@ -2,6 +2,7 @@
 #define ROOM_CPP
 
 #include "Room.h"
+#include "utils.cpp"
 #include <cassert>
 
 /*
@@ -13,6 +14,7 @@ Date to;
 std::string note;
 bool boocked;
 */
+
 Room::Room(){
 
 }
@@ -69,12 +71,21 @@ void Room::book_room(const Date& _from, const Date& _to){
 	this->set_to_date(_to);
 }
 
+void Room::check_out_room(){
+	this->boocked = false;
+}
+
+
+//important
+//file << "...."  write in file
+//file >> "...."  read from file
+
 std::ostream& operator<<(std::ostream& out, const Room& r){
 	return out;
 }
 
-std::istream& operator>>(std::istream& out, const Room& r){
-	return out;
+std::istream& operator>>(std::istream& in, const Room& r){
+	return in;
 }
 
 #endif /* end of include guard: ROOM_CPP */
